@@ -1,0 +1,25 @@
+lzc-sdk-version: "0.1"
+name: Jetbrains Server
+package: czyt.app.jetbrains-server
+version: 0.2.6
+description: jetbrains License Server
+homepage: https://czyt.tech
+author: czyt
+application:
+  subdomain: jetbrains-server
+  background_task: true
+  multi_instance: false
+  gpu_accel: false
+  kvm_accel: false
+  usb_accel: false
+  public_path:
+    - /
+  routes:
+    - /=http://jetbra-server:8080
+    
+services:
+  jetbra-server:
+    container_name: jetbra-server
+    image:  docker.hlmirror.com/czyt/jetbra-server:v0.2.6
+    environment:
+        - BIND_ALL=true
