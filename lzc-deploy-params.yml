@@ -1,32 +1,32 @@
 params:
-  - id: bindall
+  - id: enable_basic_auth
     type: bool
-    name: "bind all ip address"
-    description: "the jetbrains active server bind all ip address"
-    default_value: true
+    name: "enable basic auth"
+    description: "enable basic auth for web"
+    default_value: false
 
-  - id: authuser
+  - id: basic_auth_user
     type: string
-    name: "jetbrains active server admin username"
-    description: "the jetbrains active server admin username you want to set"
+    name: "jetbrains active server basic auth username"
+    description: "the jetbrains active server basic auth username you want to set"
     optional: true
 
-  - id: authpass
+  - id: basic_auth_pass
     type: string
-    name: "jetbrains active server admin password"
-    description: "the jetbrains active server admin password you want to set"
+    name: "jetbrains active server basic auth password"
+    description: "the jetbrains active server basic auth password you want to set"
     optional: true
 
 locales:
   zh:
-    bindall:
-      name: "绑定所有IP地址"
-      description: "是否绑定所有IP地址,默认为true,选择false可能导致程序不可用"
+    enable_basic_auth:
+      name: "启用Web基本身份认证"
+      description: "启用Web基本身份认证"
 
-    authuser:
-      name: "JetBrains激活服务器管理员用户名"
-      description: "您要使用的JetBrains激活工具服务器管理员的用户名"
+    basic_auth_user:
+      name: "JetBrains激活服务器Web基本认证用户名"
+      description: "您要使用的JetBrains激活工具服务器Web基本认证的用户名"
 
-    authpass:
-      name: "JetBrains激活服务器管理员密码"
-      description: "您要使用的JetBrains激活工具服务器管理员密码"
+    basic_auth_pass:
+      name: "JetBrains激活服务器Web基本认证密码"
+      description: "您要使用的JetBrains激活工具服务器Web基本认证密码"
