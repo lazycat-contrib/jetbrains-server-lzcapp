@@ -1,6 +1,6 @@
 name: Jetbrains Server
 package: czyt.app.jetbrains-server
-version: 0.2.9
+version: 0.3.0
 min_os_version: 1.3.8
 description: jetbrains License Server
 homepage: https://czyt.tech
@@ -10,13 +10,14 @@ application:
   background_task: true
   public_path:
     - /
-  routes:
-    - /=http://jetbra-server:8080
+  upstreams:
+    - location: /
+      backend: http://jetbra-server:8080/
 
 services:
   jetbra-server:
     container_name: jetbra-server
-    image: docker.hlmirror.com/czyt/jetbra-server:v0.2.9
+    image: docker.1ms.run/czyt/jetbra-server:v0.3.0
     environment:
       - BIND_ALL=true
 {{ if .U.enable_basic_auth }}
