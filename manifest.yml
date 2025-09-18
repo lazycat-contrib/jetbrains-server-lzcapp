@@ -1,6 +1,6 @@
 name: Jetbrains Server
 package: czyt.app.jetbrains-server
-version: 0.3.1
+version: 1.0.2
 min_os_version: 1.3.8
 description: jetbrains License Server
 homepage: https://czyt.tech
@@ -12,15 +12,11 @@ application:
     - /
   upstreams:
     - location: /
-      backend: http://jetbra-server:8080/
+      backend: http://jetbra-server:10768/
 
 services:
   jetbra-server:
     container_name: jetbra-server
-    image: dockerproxy.net/czyt/jetbra-server:v0.3.1
-    environment:
-      - BIND_ALL=true
-{{ if .U.enable_basic_auth }}
-      - AUTH_USER={{.U.basic_auth_user}}
-      - AUTH_PASS={{.U.basic_auth_pass}}
-{{end}}
+    image: docker.1ms.run/czyt/jetbrains-help:1.0.2
+    binds:
+      - /lzcapp/var/external:/app/external
