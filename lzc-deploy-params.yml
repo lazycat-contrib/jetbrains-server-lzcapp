@@ -1,0 +1,11 @@
+params:
+  - id: use_rust_edition_active_server
+    type: bool
+    name: "use rust build server"
+    description: "if use rust edition server,will use jetbrains activate server written in rust,otherwise will use java edition server which will use much memory"
+
+locales:
+  zh:
+    use_rust_edition_active_server:
+      name: "使用rust版本jetbrains激活服务器"
+      description: "如果使用rust版本服务器，将启动使用rust编写的jetbrains激活服务器，否则将使用java版本激活服务器,这个版本会使用更多的内存"
