@@ -19,6 +19,8 @@ services:
     container_name: jetbra-server
 {{if .U.use_rust_edition_active_server }}
     image: docker.1ms.run/czyt/jetbra:0.1.2
+    environment:
+      - PORT=10768
 {{else}}
     image: docker.1ms.run/czyt/jetbrains-help:1.0.3
     binds:
