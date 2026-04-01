@@ -20,5 +20,3 @@ services:
     image: docker.1ms.run/czyt/jetbra:1.1.1
     environment:
       - PORT=10768
-    binds:
-      - /lzcapp/var/external:/app/external
