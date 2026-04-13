@@ -10,6 +10,6 @@ application:
 services:
   jetbra-server:
     container_name: jetbra-server
-    image: docker.1ms.run/czyt/jetbra:1.1.3
+    image: docker.1ms.run/czyt/jetbra:v1.1.3
     environment:
       - PORT=10768
