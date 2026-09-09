@@ -1,0 +1,48 @@
+params:
+  - id: title
+    type: string
+    name: Site Title
+    description: Site display title
+    default_value: Jetbra
+    optional: false
+  - id: admin_username
+    type: string
+    name: Admin Username
+    description: Administrator login username
+    default_value: admin
+    optional: false
+  - id: admin_password
+    type: secret
+    name: Admin Password
+    description: Administrator password, at least 12 characters
+    default_value: "$random(len=20)"
+    optional: false
+  - id: cookie_secure
+    type: bool
+    name: Secure Cookie
+    description: Enable for HTTPS; disable only for direct HTTP access
+    default_value: "true"
+    optional: false
+  - id: trusted_proxies
+    type: string
+    name: Trusted Proxies
+    description: Comma-separated exact proxy IPs; empty ignores forwarding headers
+    default_value: ""
+    optional: true
+locales:
+  zh:
+    title:
+      name: 站点标题
+      description: 页面显示的站点名称
+    admin_username:
+      name: 管理员账号
+      description: 管理后台登录用户名
+    admin_password:
+      name: 管理员密码
+      description: 至少 12 位，默认随机生成 20 位；同时用于免密登录
+    cookie_secure:
+      name: 安全 Cookie
+      description: HTTPS 访问请开启；仅直接 HTTP 访问时关闭
+    trusted_proxies:
+      name: 可信代理
+      description: 逗号分隔的精确代理 IP；留空忽略转发头

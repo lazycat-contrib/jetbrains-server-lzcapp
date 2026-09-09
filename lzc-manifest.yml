@@ -6,10 +6,45 @@ application:
   upstreams:
     - location: /
       backend: http://jetbra-server:10768/
+  injects:
+    - id: admin-login
+      on: browser
+      auth_required: true
+      when:
+        - /login
+      do:
+        - src: builtin://simple-inject-password
+          params:
+            user: "{{ .U.admin_username }}"
+            password: "{{ .U.admin_password }}"
+            userSelector: 'input[autocomplete="username"]'
+            passwordSelector: 'input[autocomplete="current-password"]'
+            submitSelector: 'button[type="submit"]'
+            autoSubmit: true
+    - id: open-save-chooser
+      on: browser
+      when:
+        - /*
+      do:
+        - src: file:///lzcapp/pkg/content/lazycat-injects/lzc-file-chooser-inject.js
 
 services:
   jetbra-server:
-    container_name: jetbra-server
-    image: docker.1ms.run/czyt/jetbra:v1.1.4
+    # upstream: ghcr.io/dockers-x/jetbra:2.0.0
+    image: ghcr.1ms.run/dockers-x/jetbra:2.0.0
     environment:
       - PORT=10768
+      - JETBRA_DATA_DIR=/data
+      - JETBRA_TITLE={{ .U.title }}
+      - JETBRA_ADMIN_USERNAME={{ .U.admin_username }}
+      - JETBRA_ADMIN_PASSWORD={{ .U.admin_password }}
+      - JETBRA_COOKIE_SECURE={{ .U.cookie_secure }}
+      - JETBRA_TRUSTED_PROXIES={{ .U.trusted_proxies }}
+    binds:
+      - /lzcapp/var/data:/data
+
+usage: |
+  管理员入口为 /login；已通过懒猫认证的用户可自动登录。
+  管理员密码默认随机生成 20 位，自定义密码至少 12 位。
+  HTTPS 访问保持 Secure Cookie 开启；直接 HTTP 访问时关闭。
+  可信代理仅填写明确的代理 IP，留空忽略转发头。
