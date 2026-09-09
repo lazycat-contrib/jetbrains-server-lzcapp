@@ -1,7 +1,7 @@
 # Jetbrains Server 懒猫应用
 
 包名：`czyt.app.jetbrains-server`，要求 lzcos 1.5.0+。
-使用 `ghcr.io/dockers-x/jetbra` 的稳定版本，默认通过 `ghcr.1ms.run` 镜像加速交付，目标架构为 amd64。
+使用 `docker.io/czyt/jetbra` 的稳定版本，默认通过 `docker.1ms.run` 镜像加速交付，目标架构为 amd64。
 
 ## 安装与登录
 
@@ -27,8 +27,8 @@
 - `APPSTORE_URL`：喵喵商店地址。
 - `APPSTORE_TOKEN`：喵喵商店发布凭据。
 
-仓库同名 Secret 优先于组织 Secret。上游 GHCR 镜像必须可公开读取，镜像加速服务也必须提供相同的 amd64 内容；验证失败时不会发布。
-可通过 GitHub Variable `LAZYCAT_GHCR_MIRROR` 指定其他镜像加速前缀。
+仓库同名 Secret 优先于组织 Secret。上游 Docker Hub 镜像必须可公开读取，镜像加速服务也必须提供相同的 amd64 内容；验证失败时不会发布。
+可通过 GitHub Variable `LAZYCAT_DOCKER_MIRROR` 指定其他镜像加速前缀。
 
 ## 本地验证
 

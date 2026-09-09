@@ -30,8 +30,8 @@ application:
 
 services:
   jetbra-server:
-    # upstream: ghcr.io/dockers-x/jetbra:2.0.0
-    image: ghcr.1ms.run/dockers-x/jetbra:2.0.0
+    # upstream: docker.io/czyt/jetbra:2.0.0
+    image: docker.1ms.run/czyt/jetbra:2.0.0
     environment:
       - PORT=10768
       - JETBRA_DATA_DIR=/data

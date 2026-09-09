@@ -18,7 +18,7 @@ images:
   - id: jetbra
     target: service
     service: jetbra-server
-    source: ghcr.io/dockers-x/jetbra
+    source: docker.io/czyt/jetbra
     channel: stable
     sort: semver
     tag_regex: '^v?\d+\.\d+\.\d+$'
