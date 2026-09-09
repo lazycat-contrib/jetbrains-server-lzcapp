@@ -27,11 +27,10 @@ application:
         - /*
       do:
         - src: file:///lzcapp/pkg/content/lazycat-injects/lzc-file-chooser-inject.js
-
 services:
   jetbra-server:
-    # upstream: docker.io/czyt/jetbra:2.0.0
-    image: docker.1ms.run/czyt/jetbra:2.0.0
+    # upstream: docker.io/czyt/jetbra:v2.0.0
+    image: docker.1ms.run/czyt/jetbra:v2.0.0
     environment:
       - PORT=10768
       - JETBRA_DATA_DIR=/data
@@ -42,7 +41,6 @@ services:
       - JETBRA_TRUSTED_PROXIES={{ .U.trusted_proxies }}
     binds:
       - /lzcapp/var/data:/data
-
 usage: |
   管理员入口为 /login；已通过懒猫认证的用户可自动登录。
   管理员密码默认随机生成 20 位，自定义密码至少 12 位。
